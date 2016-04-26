@@ -1,4 +1,5 @@
 class Movie < ActiveRecord::Base
+  mount_uploader :poster_image_url, PosterUploader
 
   has_many :reviews
 
@@ -8,8 +9,8 @@ class Movie < ActiveRecord::Base
   validates :director,
     presence: true
 
-  validates :runtime_in_minutes,
-    numericality: { only_integer: true }
+  # validates :runtime_in_minutes,
+  #   numericality: { only_integer: true }
 
   validates :description,
     presence: true
